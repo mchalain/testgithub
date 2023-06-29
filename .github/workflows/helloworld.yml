@@ -19,6 +19,8 @@ jobs:
   Build:
     name: build
     runs-on: ubuntu-latest
+    with:
+      packages: libjansson-dev
     steps:
       - name: checkout
         uses: actions/checkout@master

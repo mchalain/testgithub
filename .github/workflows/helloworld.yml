@@ -1,0 +1,30 @@
+name: helloworld
+
+on:
+  pull_request:
+    branches:
+      - main
+      - 'release/**'
+    paths:
+      - '*.c'
+  push:
+    branches:
+      - main
+    paths:
+      - '*.c'
+
+jobs:
+  Build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@main
+      - name: build
+        run: |
+          make
+        shell: bash
+      - name: test
+        run: |
+          ./helloworld
+        shell: bash

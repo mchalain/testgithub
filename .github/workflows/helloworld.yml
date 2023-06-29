@@ -3,13 +3,13 @@ name: helloworld
 on:
   pull_request:
     branches:
-      - main
+      - master
       - 'release/**'
     paths:
       - '*.c'
   push:
     branches:
-      - main
+      - master
     paths:
       - '*.c'
 
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@main
+        uses: actions/checkout@master
       - name: build
         run: |
           make
